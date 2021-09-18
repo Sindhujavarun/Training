@@ -1,21 +1,25 @@
 // read and print n marks using pointer
 
-#include<stdio.h>
-#define COUNT 1000
+#include <stdio.h>
 int main()
 {
-	int marks[COUNT], i, *p = &marks[0], noOfMarks;
-	printf("Enter the number of marks of the student to be entered: ");
+    int noOfMarks, i;
+    printf("Enter the number of subject's marks to be printed: ");
     scanf("%d", &noOfMarks);
-    for(i = 0; i < noOfMarks; i++)
+    int marksArray[noOfMarks];
+    int *ptr = marksArray;
+    for (i = 0; i < noOfMarks; i++)
     {
-    	printf("Enter the marks of %d student: ", i + 1);
-        scanf("%d", marks[i]);
+    	printf("Enter marks of subject %d: ", i + 1);
+        scanf("%d", (ptr + i));   
     }
-    printf("\nMarks of the student are: ");
-	for(i = 0; i < noOfMarks; i++)
-	{
-		printf("%d ",*(p + i));
-	}
-return 0;
+
+    printf("\nThe marks of the student are. \n");
+    for (i = 0; i < noOfMarks; i++)
+    {
+    	printf("The marks of subject %d: ", i + 1);
+        printf("%d \n", *(ptr + i));
+    }
+
+    return 0;
 }
