@@ -4,27 +4,27 @@
 #include <stdlib.h>
 int main()
 {
-    int noOfMarks, i, *ptr, sum = 0;
+    int countOfMarks, counter, *ptrMarks, sum = 0;
     printf("Enter the number of subject's marks to be printed: ");
-    scanf("%d", &noOfMarks);
-    ptr = (int *) malloc(noOfMarks * sizeof(int));
-    if(ptr == NULL)
+    scanf("%d", &countOfMarks);
+    ptrMarks = (int *) malloc(countOfMarks * sizeof(int));
+    if(ptrMarks == NULL)
     {
         printf("\nError! Memory not allocated\n");
         return 0;
     }
-    for(i = 0; i < noOfMarks; i++)
+    for(counter = 0; counter < countOfMarks; counter++)
     {
-        printf("\nEnter marks of subject %d: ", i + 1);
-        scanf("%d", ptr + i);    
-        sum = sum + *(ptr + i);
+        printf("\nEnter marks of subject %d: ", counter + 1);
+        scanf("%d", ptrMarks + counter);    
+        sum = sum + *(ptrMarks + counter);
     }
     printf("\n\nThe marks of the student are. ");
-    for(i = 0; i < noOfMarks; i++)
+    for(counter = 0; counter < countOfMarks; counter++)
     {
-        printf("\nThe marks of subject %d: ", i + 1);
-        printf("%d", *(ptr + i));
+        printf("\nThe marks of subject %d: ", counter + 1);
+        printf("%d", *(ptrMarks + counter));
     }
-    free(ptr);
+    free(ptrMarks);
     return 0;
 }

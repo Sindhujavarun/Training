@@ -3,20 +3,20 @@
 #include <stdio.h>
 int main()
 {
-    int i, noOfMarks;  
+    int counter, countOfMarks;  
     printf("Enter the number of subject's marks to be printed: ");
-    scanf("%d", &noOfMarks);
-    int marksArray[noOfMarks]
-    for(i = 0; i < noOfMarks; i++)
+    scanf("%d", &countOfMarks);
+    int marksArray[countOfMarks];
+    for(counter = 0; counter < countOfMarks; counter++)
     {
-        printf("Enter the marks of subject %d: ", i + 1);
-        scanf("%d", &marksArray[i]);
+        printf("Enter the marks of subject %d: ", counter + 1);
+        scanf("%d", &marksArray[counter]);
     }
     printf("\nThe marks of the student are. \n");
-    for(i = 0; i < noOfMarks; i++)
+    for(counter = 0; counter < countOfMarks; counter++)
     {
-        printf("The marks of subject %d: ", i + 1);
-        printf("%d \n", marksArray[i]);
+        printf("The marks of subject %d: ", counter + 1);
+        printf("%d \n", marksArray[counter]);
     }
     return 0;
 }

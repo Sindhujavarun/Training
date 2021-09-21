@@ -4,17 +4,17 @@
 #include <stdlib.h>
 int main() 
 {
-    char name[1000];
-    FILE *fptr;
-    fptr = fopen("name.txt", "w");
-    if (fptr == NULL) 
+    char name[20];
+    FILE *filePtr;
+    filePtr = fopen("name.txt", "w");
+    if (filePtr == NULL) 
     {
         printf("Error!");
         exit(1);
     }
     printf("Enter a name to save in the file name.txt:\n");
     fgets(name, sizeof(name), stdin);
-    fprintf(fptr, "%s", name);
-    fclose(fptr);
+    fprintf(filePtr, "%s", name);
+    fclose(filePtr);
     return 0;
 }

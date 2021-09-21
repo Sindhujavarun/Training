@@ -1,32 +1,37 @@
 // Read the file containing names and print all names on the monitor using file.
 
 #include <stdio.h>
+#include <stdlib.h>
 int main ()
 {
-    FILE * fptr;
-    int i,noOfNames;
-    char name[50];
-    char fname[20]="printfile.txt";
-    char str1;
+    FILE *fptr;
+    int counter, countOfNames;
+    char fileName[100], string;
+    printf("Enter the filename to open: ");
+    scanf("%s", fileName);
     printf("Enter the number of names to be saved in the file printfile.txt: ");
-    scanf("%d", &noOfNames);
-    printf("\nEnter %d names to be saved in the file printfile.txt: \n", noOfNames);
-    fptr = fopen (fname,"w"); 
-    for(i = 0; i <= noOfNames; i++)
+    scanf("%d", &countOfNames);
+    char names[countOfNames][20];
+    printf("\nEnter %d names to be saved in the file printfile.txt: \n", countOfNames);
+    fptr = fopen (fileName, "w"); 
+    for(counter = 0; counter < countOfNames; counter++)
     {
-        fgets(name, sizeof name, stdin);
-        fputs(name, fptr);
+        printf("Enter name %d: ", counter + 1);
+        scanf("%s", names[counter]);
+        fprintf(fptr, "%s\n", names[counter]);
     }
     fclose (fptr);
-    fptr = fopen (fname, "r");  
-    printf("\nThe names in the file %s are:\n",fname);
-    str1 = fgetc(fptr);
-    while (str1 != EOF)
+    fptr = fopen (fileName, "r");  
+    if (fptr == NULL)
     {
-            printf ("%c", str1);
-            str1 = fgetc(fptr);
+        printf("Cannot open file \n");
+        exit(0);
     }
-    printf("\n");
-    fclose (fptr);
+    printf("\nThe names in the file %s are: \n", fileName);
+    for(counter = 0; counter < countOfNames; counter++)
+    {
+    printf("%s\n", names[counter]);
+    }
+    fclose(fptr);
     return 0;
 }

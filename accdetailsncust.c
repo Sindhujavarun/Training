@@ -1,37 +1,37 @@
 //read and print account details of n bank customer using array of structure.
 
 #include <stdio.h>
-struct student 
+struct customerDetails 
 {
-    char name[50];
-    int accountNo;
-    char branch[50];
-} s;
-
+    char customerName[20];
+    int accountNumber;
+    float accountBalance;
+};
 int main() 
 {
-    int i, noOfCustomers;
+    int counter, countOfCustomers;
     printf("Enter account details of customers.\n");
     printf("Enter the number of customer's details to be stored and printed: ");
-    scanf("%d", &noOfCustomers);
-    for (i = 0; i < noOfCustomers; i++) 
+    scanf("%d", &countOfCustomers);
+    struct customerDetails customer[countOfCustomers];
+    for (counter = 0; counter < countOfCustomers; counter++) 
     {
-        printf("Enter name of customer %d: ", i + 1);
-        scanf("%s", &s.name);
-        printf("Enter account number of customer %d: ", i + 1);
-        scanf("%d", &s.accountNo);
-        printf("Enter the bank branch of customer %d: ", i + 1);
-        scanf("%s", &s.branch);
+        printf("\nEnter account number of the customer %d: ", counter + 1);
+        scanf("%d", &customer[counter].accountNumber);
+        printf("Enter name of customer %d: ", counter + 1);
+        scanf("%s", customer[counter].customerName);
+        printf("Enter the account balance of the customer %d: ", counter + 1);
+        scanf("%f", &customer[counter].accountBalance);
     }
-    printf("Displaying Bank account details:\n");
-    for (i = 0; i < noOfCustomers; i++) 
+    printf("\n\nDisplaying Bank account details:\n");
+    for (counter = 0; counter < countOfCustomers; counter++) 
     {
-        printf("Name of customer %d: ", i + 1);
-        printf("%s", s.name);
-        printf("\nAccount number of customer %d: ", i + 1);
-        printf("%d", s.accountNo);
-        printf("\nBank branch of customer %d: ", i + 1);
-        printf("%s\n", s.branch);
+        printf("\nAccount number of the customer %d: ", counter + 1);
+        printf("%d\n", customer[counter].accountNumber);
+        printf("Name of the customer %d: ", counter + 1);
+        printf("%s\n", customer[counter].customerName);
+        printf("Account balance of customer %d: ", counter + 1);
+        printf("%f\n", customer[counter].accountBalance);
     }
     return 0;
 }
