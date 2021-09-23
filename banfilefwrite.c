@@ -10,26 +10,26 @@ struct customer
 };
 int main()
 {
-  FILE *filePtr;
+  FILE *fpCustomer;
   struct customer cust;
   char customerName[10];
-  filePtr = fopen("customerDetails.txt","wb");
-  if(filePtr == NULL)
-  {
-    printf("\nCan't open file or file doesn't exist.");
-    exit(0);
-  }
   printf("\nEnter Account Number of the customer: ");
   scanf("%d", &cust.accountNumber);
   printf("Enter Name of the customer: ");
   scanf("%s", cust.customerName);
   printf("Enter Account balance of the customer: ");
   scanf("%f", &cust.accountBalance);
-  fwrite(&cust, sizeof(cust), 1, filePtr);
+  fpCustomer = fopen("customerDetails.txt","a");
+  if(fpCustomer == NULL)
+  {
+    printf("\nCan't open file or file doesn't exist.");
+    exit(0);
+  }
+  fwrite(&cust, sizeof(cust), 1, fpCustomer);
   printf("\nCustomer details successfully saved. \n");
   printf("AccountNumber of the customer: %d\n", cust.accountNumber);
   printf("Name of the customer: %s\n", cust.customerName);
   printf("Account balance: %f\n", cust.accountBalance);
-  fclose(filePtr);
+  fclose(fpCustomer);
   return 0;
 }
