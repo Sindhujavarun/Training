@@ -69,7 +69,6 @@ void showCustomers()
 	struct customer cust;
     FILE *fpCustomer;
     char customerName[10];
-    int counter;
     fpCustomer = fopen(FILENAME,"r");
     if(fpCustomer == NULL)
     {
