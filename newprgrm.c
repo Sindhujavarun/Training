@@ -1,5 +1,3 @@
-// print given name given number of times using command-line arguments.
-
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
@@ -24,29 +22,30 @@ int main(int argc, char *argv[])
             continue;
         }
     }
-    if(argc > 3)
+    if(argc > 3 || argc < 3)
     {
         printf("Please enter a single number and a single name.");
         printf("\nEnter a name to print: ");
         scanf("%s", name);
-        printf("\nEnter number of times the name need to be printed: ");
+        printf("Enter number of times the name needs to be printed: ");
         scanf("%d", &numberToRepeat);
     }
-    else if(argc <= 1)
-    {
-        printf("Enter a name to print: \n");
-        scanf("%s", name);
-        printf("Enter number of times the name need to be printed: \n");
-        scanf("%d", &numberToRepeat);        
-    }
+    // else if(argc <= 1)
+    // {
+    //     printf("Please enter a single number and a single name.");
+    //     printf("\nEnter a name to print: ");
+    //     scanf("%s", name);
+    //     printf("Enter number of times the name need to be printed: ");
+    //     scanf("%d", &numberToRepeat);        
+    // }
     else if(countOfName == 1 && repeater == 0)
     {
-        printf("Enter number of times the name need to be printed: \n");
+        printf("Enter number of times the name need to be printed: ");
         scanf("%d", &numberToRepeat);
     }
     else if(countOfName == 0 && repeater == 1)
     {
-        printf("Enter a name to print: \n");
+        printf("Enter a name to print: ");
         scanf("%s", name);
     }
     printf("Name is: %s\n", name);
