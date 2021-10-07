@@ -19,7 +19,7 @@ void main()
     meaning = strtok(NULL, ":[{");
     meaning = strtok(NULL, ":");
     meaning = strtok(NULL, "\"");
-    sprintf(voice, "vlc http:%s", meaning);
+    sprintf(voice, "vlc -I null --play-and-exit http:%s", meaning);
     system(voice);
     meaning = strtok(NULL, "]");
     meaning = strtok(NULL, "[{");
@@ -27,6 +27,6 @@ void main()
     meaning = strtok(NULL, ":");
     meaning = strtok(NULL, "\"");
     printf("\nThe meaning of the word %s: \n", word);
-    printf("\n%s is %s", word, meaning);
+    printf("%s is %s", word, meaning);
     fclose(fpmeaning);
 }
