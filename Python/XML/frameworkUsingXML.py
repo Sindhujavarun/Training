@@ -54,7 +54,11 @@ def update():
 				records[ctrUpdate][choice].text = input()
 				savedData()
 				print(fieldValueList[choice - 1], "of", keyFieldValue, key, "is successfully updated.")
-			ctrUpdate += 1
+				break
+			else:
+				ctrUpdate += 1
+			if ctrUpdate == len(list(records)):
+				print("\nDetails not found.")
 		choice = input("\nDo you want to update again any Details? [y/n]: ")
 		print("\n")
 		if (choice.upper() == 'N'):
@@ -65,13 +69,21 @@ def delete():
 		ctrDelete = 0
 		print("Enter", keyFieldValue, "to delete:", end = "")
 		key = input()
+		option = input("\nAre you sure you want to delete this details? [y/n]: ")
+		print("\n")
+		if (option.upper() == 'N'):
+			break
 		while(ctrDelete < len(list(records))):
 			if records[ctrDelete][0].text == key:
 				del records[ctrDelete]
 				savedData()
 				print("\nDetails of", keyFieldValue, key, "is successfully deleted.")
-			ctrDelete += 1
-		choice = input("\nDo you want to delete any other Details? [y/n]: ")
+				break
+			else:
+				ctrDelete += 1
+			if ctrDelete == len(list(records)):
+				print("\nDetails not found.")
+		choice = input("\nDo you want to delete anymore Details? [y/n]: ")
 		print("\n")
 		if (choice.upper() == 'N'):
 			break
