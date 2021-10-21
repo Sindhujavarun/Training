@@ -17,7 +17,7 @@ def create():
 		ctrCreate = 0
 		while ctrCreate < len(fields):
 			s_elem1 = ET.Element(fields[ctrCreate])
-			print("Enter", fields[ctrCreate], ":", end = " ")
+			print("Enter", fields[ctrCreate] + ":", end = " ")
 			s_elem1.text = input()
 			record.append(s_elem1)
 			ctrCreate += 1
