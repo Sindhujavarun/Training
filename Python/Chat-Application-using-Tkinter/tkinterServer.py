@@ -36,7 +36,7 @@ def broadcastMessage(message, prefix = ""):
 clients = {}
 addresses = {}
 HOST = "165.22.14.77"
-PORT = 12346
+PORT = 17453
 SERVER = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER.bind((HOST, PORT))
 
