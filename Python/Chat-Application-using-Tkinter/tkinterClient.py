@@ -43,7 +43,7 @@ sendButton.pack()
 top.protocol("WM_DELETE_WINDOW", closeWindow)
 
 HOST = '165.22.14.77'
-PORT = 17253
+PORT = 17453
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((HOST, PORT))
 thread = Thread(target = receiveMessages)
